@@ -1,0 +1,14 @@
+{
+  "projectName": "mini-i18n-extract-plugin",
+  "projectOwner": "JuroOravec",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 70,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [],
+  "contributorsPerLine": 7
+}

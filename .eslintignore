@@ -1,0 +1,9 @@
+/coverage
+/dist
+/dist-zip
+/temp
+/template
+/node_modules
+/scripts
+/config
+/*config.js
