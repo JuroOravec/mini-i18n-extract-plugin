@@ -94,7 +94,7 @@
     "prettier": "^2.0.4",
     "readme-md-generator": "^1.0.0",
     "semantic-release": "^17.0.4",
-    "semantic-release-changelog-update": "^1.1.6",
+    "semantic-release-changelog-update": "^1.1.7",
     "semantic-release-cli": "^5.2.3",
     "semantic-release-verify-deps": "^1.0.2",
     "shx": "^0.3.2",
