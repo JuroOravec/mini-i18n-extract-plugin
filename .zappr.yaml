@@ -1,0 +1,37 @@
+# Commit validation disabled - This is already handled by Husky, Commitlint and
+# Commitzen
+commit:
+  message:
+    patterns:
+      # Enforce the commits to start with their conventional type.
+      # Types copied from `.releaserc.yml`
+      - '^(build|chore|ci|docs|feat|fix|improvement|perf|refactor|revert|style|test)(?:)?'
+      # Require to contain reference to the related issue or explicit `no-issue`
+      # Issue ref regex taken from https://zappr.readthedocs.io/en/latest/setup/#commit-messages
+      - '(?:#[0-9]+)|(?:no-issue)'
+
+# See https://zappr.readthedocs.io/en/latest/setup/#approvals
+approvals:
+  ignore: pr_opener # do not count approval from PR opener
+  pattern: "^(:\\+1:|👍|[Ll][Gg][Tt][Mm])$"
+  minimum: 1
+  groups:
+    # Require at least one approval from maintainers
+    maintainers:
+      minimum: 1
+      from:
+        users:
+          - JuroOravec
+
+specification:
+  title:
+    minimum-length:
+      enablead: true
+      length: 8
+  body:
+    minimum-length:
+      enabled: true
+      length: 8
+    # unfortunately, the regex for detecting whether the body contains the
+    # issue number cannot be changed, so following option cannot be used
+    contains-issue-number: false
