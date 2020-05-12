@@ -108,7 +108,9 @@ to Webpack config. For example:
 **webpack.config.js**
 
 ```js
-const MiniI18nExtractPlugin = require('mini-i18n-extract-plugin');
+const MiniI18nExtractPlugin = require('mini-i18n-extract-plugin').default;
+// or
+// import MiniI18nExtractPlugin from 'mini-i18n-extract-plugin';
 
 // Plugin must be instantiated before use
 const i18nExtractPlugin = new MiniI18nExtractPlugin();
@@ -138,7 +140,8 @@ The plugin can parse JSON and YAML files, and output from
 A single instance can be used for all of them:
 
 ```js
-const MiniI18nExtractPlugin = require('mini-i18n-extract-plugin');
+import MiniI18nExtractPlugin from 'mini-i18n-extract-plugin';
+// or const MiniI18nExtractPlugin = require('mini-i18n-extract-plugin').default
 
 // Plugin must be instantiated before use
 const i18nExtractPlugin = new MiniI18nExtractPlugin();
