@@ -1,6 +1,6 @@
 {
   "name": "mini-i18n-extract-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "I18n (JSON or YAML) extraction Webpack plugin based off mini-css-extract-plugin",
   "homepage": "https://github.com/JuroOravec/mini-i18n-extract-plugin#readme",
   "repository": "github:JuroOravec/mini-i18n-extract-plugin",
