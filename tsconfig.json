@@ -2,7 +2,16 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "lib": ["es2017", "es7", "es6", "DOM", "ES5", "ESNext", "DOM.Iterable", "ScriptHost"],
+    "lib": [
+      "es2017",
+      "es7",
+      "es6",
+      "DOM",
+      "ES5",
+      "ESNext",
+      "DOM.Iterable",
+      "ScriptHost"
+    ],
     "allowJs": true,
     "checkJs": true,
     "declaration": true,
