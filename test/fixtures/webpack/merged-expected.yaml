@@ -1,0 +1,10 @@
+en:
+  some:
+    translation: here
+    stuff: which is not in another
+    and_translation: which we overwrote here
+de:
+  some:
+    translation: hier
+    stuff: das ist nicht in einem anderen
+    and_translation: was wir hier überschrieben haben

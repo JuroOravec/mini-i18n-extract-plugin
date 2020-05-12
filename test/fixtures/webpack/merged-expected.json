@@ -1,0 +1,16 @@
+{
+  "en": {
+    "some": {
+      "translation": "here",
+      "and_translation": "which we overwrote here",
+      "stuff": "which is not in another"
+    }
+  },
+  "de": {
+    "some": {
+      "translation": "hier",
+      "and_translation": "was wir hier überschrieben haben",
+      "stuff": "das ist nicht in einem anderen"
+    }
+  }
+}

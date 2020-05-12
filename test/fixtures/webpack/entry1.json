@@ -1,0 +1,14 @@
+{
+  "en": {
+    "some": {
+      "translation": "here",
+      "and_translation": "there"
+    }
+  },
+  "de": {
+    "some": {
+      "translation": "hier",
+      "and_translation": "dort"
+    }
+  }
+}

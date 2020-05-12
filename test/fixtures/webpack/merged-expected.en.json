@@ -1,0 +1,9 @@
+{
+  "en": {
+    "some": {
+      "translation": "here",
+      "and_translation": "which we overwrote here",
+      "stuff": "which is not in another"
+    }
+  }
+}
