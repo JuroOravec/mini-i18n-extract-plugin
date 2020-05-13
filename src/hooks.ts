@@ -107,7 +107,7 @@ const hooks: Partial<Taps> = {
       // locale, so top-level keys of the data are not locale keys, but i18n
       // data already.
       const locales: Array<[string, any]> = resourceLocale
-        ? [resourceLocale, data]
+        ? [[resourceLocale, data]]
         : Object.entries(data);
 
       for (const [locale, localeData] of locales) {
