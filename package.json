@@ -115,7 +115,7 @@
     "typedoc-plugin-markdown": "^2.2.17",
     "typescript": "^3.8.3",
     "vue": "^2.6.11",
-    "vue-loader": "15.4.2",
+    "vue-loader": "15.9.2",
     "vue-template-compiler": "^2.6.11",
     "yaml-loader": "^0.6.0"
   },
