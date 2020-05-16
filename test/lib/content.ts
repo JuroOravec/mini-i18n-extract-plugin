@@ -11,15 +11,36 @@ export function normalize(content: string) {
 /**
  * Get content from a file. Read and normalize
  */
-export async function get(path: string) {
+export async function get(path: string, shouldNormalize = true) {
   const content = await fsp.readFile(path, 'utf-8');
-  return normalize(content);
+  return shouldNormalize ? normalize(content) : content;
 }
 
 /**
  * Compare normalized contents of two files.
  */
-export async function compare(path1: string, path2: string) {
-  const [content1, content2] = await Promise.all([path1, path2].map(get));
+export async function compare(
+  path1: string,
+  path2: string,
+  normalize = true,
+) {
+  const [content1, content2] = await Promise.all(
+    [path1, path2].map((p) => get(p, normalize)),
+  );
   return content1 === content2;
+}
+
+/**
+ * Compare normalized contents of two files using custom function
+ */
+export async function compareWith(
+  fn: (a: any, b: any) => boolean | void,
+  path1: string,
+  path2: string,
+  normalize = true,
+) {
+  const [content1, content2] = await Promise.all(
+    [path1, path2].map((p) => get(p, normalize)),
+  );
+  return fn(content1, content2);
 }

@@ -1,5 +1,4 @@
-de:
-  some:
-    translation: hier
-    stuff: das ist nicht in einem anderen
-    and_translation: was wir hier überschrieben haben
+some:
+  translation: hier
+  stuff: das ist nicht in einem anderen
+  and_translation: was wir hier überschrieben haben

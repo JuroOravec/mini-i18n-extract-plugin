@@ -159,7 +159,15 @@ const hooks: Partial<Taps> = {
     const source = new ConcatSource();
     if (!modules.length) return new ConcatSource(source);
 
-    const finalJson = merge({}, ...modules.map((m) => JSON.parse(m.content)));
+    const finalJson = merge(
+      {},
+      ...modules.map((m) => {
+        const data = JSON.parse(m.content);
+        // Scope the locale data to its locale key if all locales should
+        // be in same file
+        return splitLocales ? data : { [m.locale]: data };
+      }),
+    );
 
     // If the modules are split by locales we can infer the currect locale
     // by looking at any of the modules
