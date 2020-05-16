@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/JuroOravec/mini-i18n-extract-plugin/compare/v1.0.2...v1.0.3) (2020-05-16)
+
+
+### Bug Fixes
+
+* fix data not scoped when splitLocales is false ([b35e4b6](https://github.com/JuroOravec/mini-i18n-extract-plugin/commit/b35e4b65a217aeae18bf8c78861397ff1c7769b4))
+
 ## [1.0.2](https://github.com/JuroOravec/mini-i18n-extract-plugin/compare/v1.0.1...v1.0.2) (2020-05-13)
 
 

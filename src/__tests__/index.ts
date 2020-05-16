@@ -1,9 +1,9 @@
 import path from 'path';
 import webpack from 'webpack';
-// @ts-ignore
 import { VueLoaderPlugin } from 'vue-loader';
 import Vue from 'vue';
 import zip from 'lodash.zip';
+import yaml from 'js-yaml';
 
 import MiniI18nExtractPlugin from '..';
 import { ExportType } from '../types';
@@ -87,6 +87,14 @@ function prepConfig(type: SourceType, plugin?: any, loader?: object) {
   return config;
 }
 
+function getOutputFile(file: string) {
+  return path.resolve(defaultConfig.output!.path!, file);
+}
+
+function getExpectedFile(file: string) {
+  return require.resolve(path.join('../../test/fixtures/webpack', file));
+}
+
 type OutputInfo = { output: string; expected: string; locales?: string[] };
 async function validateLocaleOutput(outputInfo: OutputInfo) {
   const { output, expected, locales } = outputInfo;
@@ -114,7 +122,13 @@ async function validateLocaleOutput(outputInfo: OutputInfo) {
       : [[output], [expected]];
 
   for (const [outputPath, expectedPath] of zip(outputs, expects)) {
-    await content.compare(outputPath!, expectedPath!);
+    const loader = /ya?ml/iu.test(outputPath!) ? yaml.safeLoad : JSON.parse;
+    await content.compareWith(
+      (a, b) => expect(loader(a)).toEqual(loader(b)),
+      outputPath!,
+      expectedPath!,
+      false,
+    );
   }
 }
 
@@ -296,13 +310,8 @@ describe('MiniI18nExtractPlugin', () => {
       ['json.vue', 'vue'],
     ] as [string, SourceType][];
 
-    const outputPath = path.resolve(
-      defaultConfig.output!.path!,
-      `main.i18n.yaml`,
-    );
-    const expectedPath = require.resolve(
-      '../../test/fixtures/webpack/entry1-expected.yaml',
-    );
+    const outputPath = getOutputFile(`main.i18n.yaml`);
+    const expectedPath = getExpectedFile('entry1-expected.yaml');
 
     const plugin = new MiniI18nExtractPlugin({
       exportType: 'yaml',
@@ -360,12 +369,9 @@ describe('MiniI18nExtractPlugin', () => {
     test.each(exportTypes)(
       'export type %s exports to %s',
       async (inputFileFormat, expectedFileFormat) => {
-        const outputPath = path.resolve(
-          defaultConfig.output!.path!,
-          `main.i18n.${expectedFileFormat}`,
-        );
-        const expectedPath = require.resolve(
-          `../../test/fixtures/webpack/entry1-expected.${expectedFileFormat}`,
+        const outputPath = getOutputFile(`main.i18n.${expectedFileFormat}`);
+        const expectedPath = getExpectedFile(
+          `entry1-expected.${expectedFileFormat}`,
         );
 
         const plugin = new MiniI18nExtractPlugin({
@@ -397,13 +403,8 @@ describe('MiniI18nExtractPlugin', () => {
       [undefined, true],
     ] as [boolean | undefined, boolean][];
 
-    const outputPath = path.resolve(
-      defaultConfig.output!.path!,
-      'main.i18n.json',
-    );
-    const expectedPath = require.resolve(
-      '../../test/fixtures/webpack/entry1-expected.json',
-    );
+    const outputPath = getOutputFile('main.i18n.json');
+    const expectedPath = getExpectedFile('entry1-expected.json');
 
     beforeEach(async () => {
       await reset();
@@ -442,13 +443,8 @@ describe('MiniI18nExtractPlugin', () => {
     });
 
     test.each(exportTypes)('%s output is merged', async (fileFormat) => {
-      const outputPath = path.resolve(
-        defaultConfig.output!.path!,
-        `main.i18n.${fileFormat}`,
-      );
-      const expectedPath = require.resolve(
-        `../../test/fixtures/webpack/merged-expected.${fileFormat}`,
-      );
+      const outputPath = getOutputFile(`main.i18n.${fileFormat}`);
+      const expectedPath = getExpectedFile(`merged-expected.${fileFormat}`);
 
       const plugin = new MiniI18nExtractPlugin({
         exportType: fileFormat,

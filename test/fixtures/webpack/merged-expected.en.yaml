@@ -1,5 +1,4 @@
-en:
-  some:
-    translation: here
-    stuff: which is not in another
-    and_translation: which we overwrote here
+some:
+  translation: here
+  stuff: which is not in another
+  and_translation: which we overwrote here
