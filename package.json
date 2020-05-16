@@ -64,7 +64,8 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "labels:sync": "node scripts/sync_labels.js",
-    "readme:init": "node ./node_modules/readme-md-generator -p README_template.md"
+    "readme:init": "node ./node_modules/readme-md-generator -p README_template.md",
+    "example": "webpack --config example/webpack.config.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
@@ -93,6 +94,8 @@
     "execa": "^4.0.0",
     "git-authors-cli": "^1.0.24",
     "github-label-sync": "^1.4.6",
+    "html-webpack-inline-i18n-plugin": "^1.0.0",
+    "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.5",
     "inquirer": "^7.1.0",
     "jest": "^25.3.0",
@@ -117,6 +120,7 @@
     "vue": "^2.6.11",
     "vue-loader": "15.9.2",
     "vue-template-compiler": "^2.6.11",
+    "webpack-cli": "^3.3.11",
     "yaml-loader": "^0.6.0"
   },
   "dependencies": {
