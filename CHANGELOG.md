@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/JuroOravec/mini-i18n-extract-plugin/compare/v1.0.4...v1.0.5) (2020-05-16)
+
+
+### Bug Fixes
+
+* **deps:** bump mini-extract-plugin from 1.4.1 to 1.4.3 ([b341e88](https://github.com/JuroOravec/mini-i18n-extract-plugin/commit/b341e881135e39e7cfe9e17dffd4cb0ff88ae55d))
+
 ## [1.0.4](https://github.com/JuroOravec/mini-i18n-extract-plugin/compare/v1.0.3...v1.0.4) (2020-05-16)
 
 ## [1.0.3](https://github.com/JuroOravec/mini-i18n-extract-plugin/compare/v1.0.2...v1.0.3) (2020-05-16)
